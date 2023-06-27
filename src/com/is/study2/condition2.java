@@ -2,6 +2,7 @@ package com.is.study2;
 
 public class condition2 {
 	public static void main(String[] args) {
+		//git test
 		
 		//if - else
 		//if(조건식){true일때실행
