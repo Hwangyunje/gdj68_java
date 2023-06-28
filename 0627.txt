@@ -1,0 +1,16 @@
+git설치
+git hub 회원가입 
+git-fork설치 실행 github정보입력
+창에나온거 복사해서 메모장에 붙여넣기후 .gitignore로gdj68.java에저장
+1.git-fork
+ 1)파일->init new repository
+ 2)Project 폴더선택
+ 3)git ignore.io->os,개발언어,ide입력후생성
+ 4)메모장->생성한내용붙여넣기 
+ 5)저장할파일명:.gitignore 위치:프로젝트폴더내
+ 6)git-fork에서stage로올리고commit
+
+2.git-hub연동
+  1)git-hub에서 프로젝트명과 동일한 이름의 repositary생성
+  2)url 주소 복사
+  3)git-fork에서 push

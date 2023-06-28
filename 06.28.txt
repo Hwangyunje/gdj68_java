@@ -1,0 +1,18 @@
+조건문
+
+ if(조건식){조건식이 true일ㄸ만 실행}
+
+if(조건식){조건식이true일떄만 실행}
+else{조건식이false일떄만실행}
+
+if(){}
+else if(){}
+...
+else{}
+
+switch(정수식or문자열){
+case 상수값:
+break;
+default:
+break
+}
