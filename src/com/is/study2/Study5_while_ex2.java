@@ -12,43 +12,79 @@ public class Study5_while_ex2 {
 	 int monsterPower=40;//몬스터의공격력
 	 //유저정보:hp,몬스터정보:hp
 	 //1.평타 2.스킬 3.HP회복 4.도망
-	 //평타:0~10미만의 공격이 Monster에게 적용
-	 //스칼:0~30미만의 공격이 Monster에게 적용(최대3번까지만)
+	 //평타:0~10이하의 공격이 Monster에게 적용
+	 //스칼:0~30이하의 공격이 Monster에게 적용(최대3번까지만)
 	 //회복:0~40까지 40X
 	 //도망:50%의 확률로 성공,실패
 	 
 	 //Monster
 	 //1:유저 공격 0~40의 공격을 유저에게
 	 Scanner sc= new Scanner(System.in);
+	 int skillcount=3;
 	 int monsterHp=60;
-	while(!(hp==0)&&!(monsterHp==0)) {
-		 int select=sc.nextInt();
-		 if(select==1) {
-			 int hit=random.nextInt(11);
-			 System.out.println("몬스터에게"+hit+"의 데미지를 주었다.");
-			 monsterHp-hit;
-		 }else 
-		if(select==2) {
-			int skill=random.nextInt(31);
-			System.out.println("몬스터에게"+skill+"의 데미지를 주었다.");
-		}else
-		 if(select==3) {
-			int heal=random.nextInt(41);
-			System.out.println("체력을"+heal+"회복하였다.");
-		}else
-		 if(select==4) {
-			int run=random.nextInt(2);
-			if(run==0) {
-				System.out.println("무사히 도망쳤습니다");
-			}else
-				if(run==1) {
-					System.out.println("도망칠 수 없습니다");
+	 boolean flag=true;
+	while(flag) {
+		System.out.println("1.평타 2.스킬 3.회복 4.도망"); 
+		int select=sc.nextInt();
+		if(select==1) {
+			//평타
+			//damage
+			select = random.nextInt(10);
+			monsterHp=monsterHp-select;
+			
+			System.out.println("몹에게"+select+"피해를 주었습니다.");
+			if(monsterHp<1) {
+				System.out.println("몹이 죽었어요");
+				break;
+			}
+			
+		}else if(select==2) {
+			//스킬
+			if(skillcount>0) {
+				select= random.nextInt(31);
+				monsterHp=monsterHp-select;
+				System.out.println("몹에게"+select+"피해를 주었습니다.");
+				if(monsterHp<1) {
+					System.out.println("몹이 죽었어요");
+					break;
+					}
+				skillcount--;
+				}else {
+					System.out.println("마나가 부족합니다");
 				}
+		}else if(select==3) {
+			//회복
+			select= random.nextInt(41);
+			hp=hp+select;
+			if(hp>40) {
+				hp=40;
+			}
+			System.out.println("Hp를 회복하였습니다.");
+		}else {
+			//도망
+			select=random.nextInt(1001);
+			if(select%2 !=0) {
+			System.out.println("도망 성공");	
+			break;}
+		else {
+			System.out.println("도망 실패");
 		}
+			
+		}//메뉴끝				
+		select=random.nextInt(40);
+		hp=hp-select;
+		System.out.println("유저에게"+select+"피해를 주었습니다.");
+		if(hp<1) {
+			System.out.println("You Die");
+			break;
 		}
-		 
+		
+		
+	}//while 끝
+		
+ } 
 	 }
 	 
 	 
-}
+
 
